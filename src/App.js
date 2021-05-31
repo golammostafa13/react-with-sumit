@@ -1,9 +1,11 @@
-import ClockList from './components/ClockList';
+// import ClockList from './components/ClockList';
+import Form from './components/Form';
 
 function App() {
     return (
         <div>
-            <ClockList />
+            {/* <ClockList /> */}
+            <Form />
         </div>
     );
 }

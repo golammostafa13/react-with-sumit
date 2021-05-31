@@ -1,9 +1,9 @@
-import Clock from './components/Clock';
+import ClockList from './components/ClockList';
 
 function App() {
     return (
         <div>
-            <Clock local="bn-BD" />
+            <ClockList />
         </div>
     );
 }

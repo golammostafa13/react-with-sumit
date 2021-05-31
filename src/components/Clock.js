@@ -9,12 +9,12 @@ class Clock extends React.Component {
         super(props);
         this.state = {
             date: new Date(),
-            local: 'en-US',
+            locale: 'bn-BD',
         };
     }
 
     componentDidMount() {
-        this.clockTime = setInterval(this.tick, 100);
+        this.clockTime = setInterval(this.tick, 1000);
     }
 
     componentWillUnmount() {
@@ -25,15 +25,28 @@ class Clock extends React.Component {
         this.setState({ date: new Date() });
     };
 
-    handleClick = (local) => {
-        this.setState({ local });
+    handleClick = (locale) => {
+        this.setState({ locale });
+        console.log(locale);
     };
 
     render() {
+        const { locale, date } = this.state;
+
+        // let button;
+        // if (locale === 'bn-BD') {
+        //     button = <Button change={this.handleClick} locale="en-US" />;
+        // } else {
+        //     button = <Button change={this.handleClick} locale="bn-BD" />;
+        // }
         return (
             <div>
-                <h1>Hello {this.state.date.toLocaleTimeString(this.state.local)}</h1>
-                <Button change={this.handleClick} locale="bn-BD" />
+                <h1>Hello {date.toLocaleTimeString(locale)}</h1>
+                {locale === 'bn-BD' ? (
+                    <Button change={this.handleClick} locale="en-US" show={false} />
+                ) : (
+                    <Button change={this.handleClick} locale="bn-BD" show />
+                )}
             </div>
         );
     }

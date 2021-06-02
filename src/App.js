@@ -1,7 +1,10 @@
 // import ClockList from './components/ClockList';
 // import Form from './components/Form';
 
-import Calculator from './components/Calculator';
+import Emoji from './components/Emoji';
+import Text from './components/Text';
+
+// import Calculator from './components/Calculator';
 
 // import TemperatureInput from './components/TemperatureInput';
 
@@ -10,7 +13,8 @@ function App() {
         <div>
             {/* <ClockList /> */}
             {/* <Form /> */}
-            <Calculator />
+            {/* <Calculator /> */}
+            <Emoji>{(addEmoji) => <Text addEmoji={addEmoji} />}</Emoji>
         </div>
     );
 }

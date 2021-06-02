@@ -1,6 +1,7 @@
 /* eslint-disable react/no-unused-state */
 import React from 'react';
 import BoilingVerdict from './BoilingVerdict';
+import { convertTo, toCelcius, toFahrenheit } from './lib';
 import TemperatureInput from './TemperatureInput';
 
 export default class Calculator extends React.Component {
@@ -17,12 +18,23 @@ export default class Calculator extends React.Component {
     };
 
     render() {
-        const { temperature } = this.state;
+        const { temperature, scale } = this.state;
+        const celecius = scale === 'f' ? convertTo(temperature, toCelcius) : temperature;
+        const fahrenheit = scale === 'c' ? convertTo(temperature, toFahrenheit) : temperature;
+
         return (
             <>
-                <TemperatureInput scale="c" onChangeInput={this.handleInput} />
-                <TemperatureInput scale="f" onChangeInput={this.handleInput} />
-                <BoilingVerdict temperature={temperature} />
+                <TemperatureInput
+                    scale="c"
+                    temperature={celecius}
+                    onChangeInput={this.handleInput}
+                />
+                <TemperatureInput
+                    scale="f"
+                    temperature={fahrenheit}
+                    onChangeInput={this.handleInput}
+                />
+                <BoilingVerdict temperature={parseFloat(temperature)} />
             </>
         );
     }

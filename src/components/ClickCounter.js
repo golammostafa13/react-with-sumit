@@ -1,7 +1,5 @@
-import withCounter from './withCounter';
-
-function ClickCounter({ count, incrementCounter }) {
+function ClickCounter({ count, incrementCount }) {
     // eslint-disable-next-line react/button-has-type
-    return <button onClick={incrementCounter}>Clicked {count} times </button>;
+    return <button onClick={incrementCount}>Clicked {count} times </button>;
 }
-export default withCounter(ClickCounter);
+export default ClickCounter;

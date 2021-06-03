@@ -4,6 +4,8 @@
 // import Text from './components/Text';
 
 import ClickCounter from './components/ClickCounter';
+import Counter from './components/Counter';
+// import ClickCounter from './components/ClickCounter';
 import HoverCounter from './components/HoverCounter';
 
 // import Calculator from './components/Calculator';
@@ -17,8 +19,18 @@ function App() {
             {/* <Form /> */}
             {/* <Calculator /> */}
             {/* <Emoji>{(addEmoji) => <Text addEmoji={addEmoji} />}</Emoji> */}
-            <ClickCounter />
-            <HoverCounter />
+            {/* <ClickCounter /> */}
+            {/* <HoverCounter /> */}
+            <Counter>
+                {(count, incrementCount) => (
+                    <ClickCounter count={count} incrementCount={incrementCount} />
+                )}
+            </Counter>
+            <Counter>
+                {(count, incrementCount) => (
+                    <HoverCounter count={count} incrementCount={incrementCount} />
+                )}
+            </Counter>
         </div>
     );
 }

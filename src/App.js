@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unused-state */
 /* eslint-disable no-undef */
 /* eslint-disable no-unused-expressions */
 /* eslint-disable react/prefer-stateless-function */
@@ -21,19 +22,17 @@ import ThemeContext from './components/contextApi/ThemeContext';
 export default class App extends React.Component {
     state = {
         theme: 'black',
-    };
-
-    switchTheme = () => {
-        this.setState(({ theme }) => {
-            if (theme === 'black') {
-                return { theme: 'white' };
-            }
-            return { theme: 'black' };
-        });
+        switchTheme: () => {
+            this.setState(({ theme }) => {
+                if (theme === 'black') {
+                    return { theme: 'white' };
+                }
+                return { theme: 'black' };
+            });
+        },
     };
 
     render() {
-        const { theme } = this.state;
         return (
             <div>
                 {/* <ClockList /> */}
@@ -52,7 +51,7 @@ export default class App extends React.Component {
                         <HoverCounter count={count} incrementCount={incrementCount} />
                     )}
                 </Counter> */}
-                <ThemeContext.Provider value={{ theme, switchTheme: this.switchTheme }}>
+                <ThemeContext.Provider value={this.state}>
                     <Section />
                 </ThemeContext.Provider>
             </div>

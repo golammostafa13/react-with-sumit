@@ -1,4 +1,4 @@
-import createContext from './Context';
+import React from 'react';
 
-const ThemeContext = createContext('ligt');
+const ThemeContext = React.createContext('white');
 export default ThemeContext;

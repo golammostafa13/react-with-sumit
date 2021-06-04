@@ -1,3 +1,5 @@
+/* eslint-disable no-undef */
+/* eslint-disable no-unused-expressions */
 /* eslint-disable react/prefer-stateless-function */
 // import ClockList from './components/ClockList';
 // import Form from './components/Form';
@@ -21,6 +23,15 @@ export default class App extends React.Component {
         theme: 'black',
     };
 
+    switchTheme = () => {
+        this.setState(({ theme }) => {
+            if (theme === 'black') {
+                return { theme: 'white' };
+            }
+            return { theme: 'black' };
+        });
+    };
+
     render() {
         const { theme } = this.state;
         return (
@@ -41,7 +52,7 @@ export default class App extends React.Component {
                         <HoverCounter count={count} incrementCount={incrementCount} />
                     )}
                 </Counter> */}
-                <ThemeContext.Provider value={theme}>
+                <ThemeContext.Provider value={{ theme, switchTheme: this.switchTheme }}>
                     <Section />
                 </ThemeContext.Provider>
             </div>
